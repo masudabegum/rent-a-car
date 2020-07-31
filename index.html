@@ -16,7 +16,7 @@
 
     <!-- CSS link -->
     <link rel="stylesheet" href="./assets/css/style.css">
-
+    
 </head>
 
 <body>
@@ -31,10 +31,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">User <span class="sr-only">(current)</span></a>
+                    <a class="nav-link " href="#">User <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
+                    <a class="nav-link " href="#">Login</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Logout</a>
@@ -47,7 +47,7 @@
     <!-- Banner -->
     <div class="jumbotron jumbotron-fluid main-banner mb-3">
         <div class="container border">
-            <h1 class="display-4">Welcome Rima</h1>
+            <h1 class="display-4 greeting">Welcome Rima</h1>
            <!-- <h1 class="display-4">Welcome!!</h1> -->
             <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention
                 to
@@ -62,15 +62,19 @@
 
     <div class="container-fluid p-3">
 
+        <!-- Filter Cars by location -->
+        <form id="filter-cars">
         <div class="row pt-5 pb-5 pl-5">
             <div class="col-5">
-                <input type="search" class="form-control ds-input" id="from" placeholder="My location">
+                <input type="search" class="form-control ds-input" id="from" placeholder="My location" required>
             </div>
             <div class="col-5">
-                <input type="search" class="form-control ds-input" id="to" placeholder="Destination">
+                <input type="search" class="form-control ds-input" id="to" placeholder="Destination" required>
             </div>
-            <button class="btn btn-success">Search</button>
+            <button type= "submit" class="btn btn-success">Search</button>
         </div>
+    </form>
+        <!-- Filter car by location ends -->
 
         <div class="row mb-4" id="cars">
             <!-- Added in main.js -->
