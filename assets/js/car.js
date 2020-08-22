@@ -1,3 +1,5 @@
+let user = localStorage.getItem('user');
+
 let params = new URLSearchParams(window.location.search);
 let carId = params.get("carId");
 
@@ -37,3 +39,17 @@ firebase
       zoom: 15
     });
   });
+
+
+  // Hire Car
+  document.querySelector('#hire-button').addEventListener('click', function(event){
+    location.href = `hire.html?carId=${carId}`;
+    
+    // if(user){
+      //   console.log("Testing")
+        
+      // }else{
+        
+      //   alert("You are not logged in!")
+      // }
+  })
