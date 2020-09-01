@@ -1,4 +1,4 @@
-let user = localStorage.getItem('user');
+let user = JSON.parse(localStorage.getItem('user'));
 
 let params = new URLSearchParams(window.location.search);
 let carId = params.get("carId");
@@ -43,13 +43,12 @@ firebase
 
   // Hire Car
   document.querySelector('#hire-button').addEventListener('click', function(event){
-    location.href = `hire.html?carId=${carId}`;
     
-    // if(user){
-      //   console.log("Testing")
+    if(user.uid){
+      location.href = `hire.html?carId=${carId}`;
         
-      // }else{
+      }else{
         
-      //   alert("You are not logged in!")
-      // }
+        alert("You are not logged in!")
+      }
   })

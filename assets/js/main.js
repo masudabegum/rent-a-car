@@ -1,5 +1,14 @@
 
-// Get all cars from firebase)
+let user = JSON.parse(localStorage.getItem('user'));
+console.log(user)
+
+if(user!=null){
+    document.querySelector('.greeting').innerHTML = `Welcome ${user.fullname}`;
+
+}else{
+    document.querySelector('.greeting').innerHTML = `Welcome`;
+}
+// Get all cars from firebase
 firebase.firestore().collection('all-cars').get().then(snapshot => {
   
     snapshot.forEach(snap => {

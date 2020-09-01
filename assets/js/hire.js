@@ -1,5 +1,6 @@
 let params = new URLSearchParams(window.location.search)
 let carId = params.get("carId");
+user = JSON.parse(localStorage.getItem('user'))
 console.log(carId);
 
 firebase.firestore().collection('all-cars').doc(carId).get().then(snapshot=>{
@@ -21,10 +22,11 @@ document.querySelector('form').addEventListener('submit', (event)=>{
        destination: event.target[5].value,
        pick_up_location: event.target[6].value,
        travel: event.target[7].value,
-       journey_date: event.target[8].value
+       journey_date: event.target[8].value,
+       journey_time: event.target[9].value
         }
         console.log(obj)
-        // firebase.firestore().collection('users').doc(userID).collection('history').add(obj);
+        firebase.firestore().collection('users').doc(user.uid).collection('history').add(obj);
     
 
 })
