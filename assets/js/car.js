@@ -1,5 +1,6 @@
 let user = JSON.parse(localStorage.getItem('user'));
 
+
 let params = new URLSearchParams(window.location.search);
 let carId = params.get("carId");
 
@@ -25,7 +26,9 @@ firebase
             <p class="lead"><b>Destinations: </b> ${car.locations}</p>
             <p class="lead"><b>Driver: </b> ${car.driver}</p>
             <p class="lead"><b>Driver Experience: </b> ${car.experience}</p>
-
+            <p class="lead"><b>Test: </b> ${car.test}</p>
+            
+          
         `;
 
     document.querySelector("#car-details").innerHTML = details;
@@ -44,11 +47,9 @@ firebase
   // Hire Car
   document.querySelector('#hire-button').addEventListener('click', function(event){
     
-    if(user.uid){
+    if(user!=null && user.uid){
       location.href = `hire.html?carId=${carId}`;
-        
       }else{
-        
         alert("You are not logged in!")
       }
   })
