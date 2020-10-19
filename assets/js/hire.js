@@ -26,6 +26,9 @@ document.querySelector('form').addEventListener('submit', (event)=>{
             journey_date: event.target[8].value,
             journey_time: event.target[9].value,
             
+            
+
+            
             carname: car.name,
             hireTime: Date.now()
         }
