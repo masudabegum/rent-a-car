@@ -1,6 +1,25 @@
+// firebase.firestore().collection('all-cars').add({
+
+//     image:"https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
+//     name:"jgjgj",
+//     brief:"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, rem?",
+//     air_condition:true,
+//     available: false,
+//     description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem animi voluptas voluptatum ea perferendis aliquid dolore facere vel quisquam explicabo dolores, impedit similique quae temporibus, quibusdam dolorem doloribus tenetur deleniti quis ipsa autem. Nam quod voluptas totam officia maxime? Animi, soluta. Illo natus quam ducimus. Natus quam, aut maiores deserunt alias animi esse sunt doloribus officia labore quia, perspiciatis blanditiis repellendus aliquid ex officiis odit ullam laborum quas! Nesciunt dolore repellendus quis reiciendis veritatis quo.",
+//     driver:"Testing driver",
+//     experience:"2",
+//     from:['sylhet', 'dhaka'],
+//     locations:['barishal', 'chittagong'],
+//     numberOfSits:"7",
+//     one_way_fare:"1200",
+//     size:"mini",
+//     two_way_fare:"1000"
+
+// }).then(data=>{
+//     firebase.firestore().collection('all-cars').doc(data.id).update({car_id: data.id});
+// })
 
 let user = JSON.parse(localStorage.getItem('user'));
-console.log(user)
 
 if(user!=null){
     document.querySelector('.greeting').innerHTML = `Welcome ${user.fullname}`;
@@ -19,6 +38,7 @@ firebase.firestore().collection('all-cars').get().then(snapshot => {
         let html = `
              <div class="col-lg-3 col-md-6 col-sm-12 mt-2">
                 <div class="card">
+                    
                     <img class="card-img-top" src="${car.image}" alt="Card image cap" style="height: 230px;">
                     <div class="card-body">
                         <h5 class="card-title"> ${car.name} </h5>

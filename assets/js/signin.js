@@ -12,6 +12,7 @@ if(signinForm){
                 firebase.firestore().collection('users').doc(data.user.uid).get().then((res)=>{
                     console.log(res.data())
                     localStorage.setItem('user', JSON.stringify(res.data()));
+                    console.log(localStorage.getItem('user'))
                     location.href = 'index.html'
                 })
             })

@@ -26,6 +26,9 @@ firebase
             <p class="lead"><b>Destinations: </b> ${car.locations}</p>
             <p class="lead"><b>Driver: </b> ${car.driver}</p>
             <p class="lead"><b>Driver Experience: </b> ${car.experience}</p>
+          
+            
+            
             
             
           

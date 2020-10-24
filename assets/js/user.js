@@ -2,7 +2,7 @@ let user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user'
 let updateForm = document.querySelector('form');
 console.log(user)
 if (user.uid) {
-    document.querySelector('#fullname').vaue = user.fullname;
+    document.querySelector('#fullname').value = user.fullname;
     document.querySelector('#email').value = user.email;
     document.querySelector('#phone').value = user.phone;
 }
@@ -15,7 +15,10 @@ updateForm.addEventListener('submit', event => {
         phone: event.target[2].value
     }
 
-    firebase.firestore().collection('users').doc(user.uid).update(userinfo).then(() => { alert("User information updated") });
+    firebase.firestore().collection('users').doc(user.uid).update(userinfo).then(() => { 
+        user.fullname = userinfo.fullname;
+        localStorage.setItem('user', JSON.stringify( user));
+        alert("User information updated"); });
 });
 
 firebase.firestore().collection('users').doc(user.uid).collection('history').get().then(snapshot => {
@@ -29,15 +32,15 @@ firebase.firestore().collection('users').doc(user.uid).collection('history').get
         li.classList.add('list-group-item')
         var myDate = history.journey_date;
         myDate = myDate.split("-");
-        var newDate = new Date(myDate[0], myDate[1] - 1, myDate[2]);
+        var oldDate = new Date(myDate[0], myDate[1] - 1, myDate[2]);
 
         let traveled = false;
-        if (newDate.getTime() < Date.now()) {
+        if (oldDate.getTime() < Date.now()) {
             traveled = true;
         }
         
         if (!traveled) {
-            li.innerHTML = `${history.carname}, (Date: ${history.journey_date}), (${history.location}-${history.destination} &nbsp;&nbsp <button class='cancel-btn' onClick = cancelTrip('${snap.id}')>Cancel</button>`
+            li.innerHTML = `${history.carname}, (Date: ${history.journey_date}), (${history.location}-${history.destination} &nbsp;&nbsp <button class='cancel-btn bg bg-danger text-white' onClick = cancelTrip('${snap.id}')>Cancel</button>`
         }else{
             li.innerHTML = `${history.carname}, (Date: ${history.journey_date}, (${history.location}-${history.destination}))`
         }

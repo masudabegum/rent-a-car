@@ -7,4 +7,7 @@
     background-size: cover;
     min-height:45vw;
 }
-
+.cancel-btn{
+    outline: none;
+    border:none;
+}
